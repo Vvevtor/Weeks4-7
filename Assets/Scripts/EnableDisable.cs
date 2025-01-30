@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnableDisable : MonoBehaviour
 {
     public SpriteRenderer sr;
-    //public EnableDisable script;
+    public EnableDisable script;
     public GameObject go;
+    public AudioSource audioSource;
+    public AudioClip clip;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -15,6 +17,7 @@ public class EnableDisable : MonoBehaviour
             //script.enabled = false;
             go.SetActive(false);
             //go.activeInHierarchy;
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -22,6 +25,16 @@ public class EnableDisable : MonoBehaviour
             //sr.enabled = true;
             //script.enabled = true;
             go.SetActive(true);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if(audioSource.isPlaying == false)
+            {
+                //audioSource.Play();
+                audioSource.PlayOneShot(clip);
+            }
+            
         }
     }
 }
